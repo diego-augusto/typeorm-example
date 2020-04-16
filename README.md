@@ -1,7 +1,7 @@
-# Awesome Project Build with TypeORM
+### Project build with TypeORM
 
 Steps to run this project:
 
 1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
+2. Run `tsc .` command
 3. Run `npm start` command
