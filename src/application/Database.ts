@@ -1,13 +1,13 @@
 import "reflect-metadata";
-import {createConnection, Connection, ConnectionOptions} from "typeorm";
+import { createConnection, Connection } from "typeorm";
 
 export default class Database {
 
-    private static connection : Connection | null =  null
+    private static connection: Connection | null = null
 
-     static async getConnection(){
+    static async getConnection() {
 
-        if(this.connection === null){
+        if (this.connection === null) {
             this.connection = await createConnection()
         }
 
