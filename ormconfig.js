@@ -1,8 +1,12 @@
 const path = require('path')
 
 module.exports = {
-    "type": "sqlite",
-    "database": "database.sqlite",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "example",
+    "database": "oneplace",
     "synchronize": true,
     "logging": false,
     "entities": [
@@ -15,8 +19,9 @@ module.exports = {
         path.resolve(__dirname, "dest/subscriber/*.js")
     ],
     "cli": {
-       "entitiesDir": path.resolve(__dirname, "dest/entity"),
-       "migrationsDir": path.resolve(__dirname, "dest/migration"),
-       "subscribersDir": path.resolve(__dirname, "dest/subscriber")
-    }
+       "entitiesDir": "src/entity",
+       "migrationsDir": "src/migration",
+       "subscribersDir": "src/subscriber"
+    },
+    "migrationsTableName": "Migrations",
  }

@@ -24,15 +24,15 @@ import { StoreRepository } from "./repository/StoreRepository";
             user.name = "Diego Augusto";
             user.email = "diego@email.com"
             user.age = 25;
-            user.isActive = true
-            await useRepository.create(user)
+            user.actived = true
+            await useRepository.save(user)
             console.log("Saved a new user with id: " + user.id);
 
             console.log("Inserting a new store into the database...");
             const store = new Store();
             store.name = "My new e-commerce";
             store.user = user
-            await storeRepository.create(store);
+            await storeRepository.save(store);
             console.log("Saved a new store with id: " + store.id);
 
             console.log("Inserting a new product into the database...");
@@ -40,7 +40,7 @@ import { StoreRepository } from "./repository/StoreRepository";
             product.name = "New Product";
             product.quantity = 10
             product.store = store
-            await productRepository.create(product);
+            await productRepository.save(product);
             console.log("Saved a new product with id: " + product.id);
         }
 
@@ -51,6 +51,8 @@ import { StoreRepository } from "./repository/StoreRepository";
         console.log("Loaded users: ", users);
         console.log("Loaded stores: ", stores);
         console.log("Loaded products: ", products);
+
+        process.exit(0);
 
     } catch (error) {
         console.log(error)

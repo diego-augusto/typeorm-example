@@ -16,5 +16,5 @@ export class User {
     age: number;
 
     @Column()
-    isActive: boolean
+    actived: boolean
 }
