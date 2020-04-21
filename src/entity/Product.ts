@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, ManyToOne, RelationId } from "typeorm";
 import { Store } from './Store'
 
 @Entity()
@@ -7,7 +7,7 @@ export class Product {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ unique: true })
+    @Column()
     name: string;
 
     @Column()

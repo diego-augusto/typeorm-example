@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Store } from "./Store";
 
 @Entity()
 export class User {
@@ -9,12 +10,12 @@ export class User {
     @Column()
     name: string;
 
-    @Column({ unique: true })
+    @Column()
     email: string;
 
     @Column()
-    age: number;
-
-    @Column()
     actived: boolean
+
+    @OneToMany(type => Store, store => store.user)
+    stores: Store[];
 }

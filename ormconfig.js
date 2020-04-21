@@ -7,7 +7,6 @@ module.exports = {
     "username": "postgres",
     "password": "example",
     "database": "oneplace",
-    "synchronize": true,
     "logging": false,
     "entities": [
         path.resolve(__dirname, "dest/entity/*.js")
@@ -23,5 +22,5 @@ module.exports = {
        "migrationsDir": "src/migration",
        "subscribersDir": "src/subscriber"
     },
-    "migrationsTableName": "Migrations",
+    "migrationsTableName": "migration",
  }

@@ -23,7 +23,6 @@ import { StoreRepository } from "./repository/StoreRepository";
             const user = new User();
             user.name = "Diego Augusto";
             user.email = "diego@email.com"
-            user.age = 25;
             user.actived = true
             await useRepository.save(user)
             console.log("Saved a new user with id: " + user.id);

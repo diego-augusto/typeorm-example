@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany, ManyToOne, RelationId } from "typeorm";
 import { User } from "./User";
 import { Product } from "./Product";
 
@@ -8,11 +8,10 @@ export class Store {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ unique: true })
+    @Column()
     name: string;
 
-    @OneToOne(type => User)
-    @JoinColumn()
+    @ManyToOne(type => User, user => user.stores)
     user: User;
 
     @OneToMany(type => Product, product => product.store)
