@@ -1,11 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, Column, OneToMany } from "typeorm";
 import { Store } from "./Store";
+import { BaseEntity } from "./BaseEntity";
 
 @Entity()
-export class User {
-
-    @PrimaryGeneratedColumn()
-    id: number;
+export class User extends BaseEntity {
 
     @Column()
     name: string;
@@ -14,7 +12,7 @@ export class User {
     email: string;
 
     @Column()
-    actived: boolean
+    password: string
 
     @OneToMany(type => Store, store => store.user)
     stores: Store[];
