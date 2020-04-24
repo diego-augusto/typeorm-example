@@ -51,6 +51,15 @@ import { StoreRepository } from "./repository/StoreRepository";
         console.log("Loaded stores: ", stores);
         console.log("Loaded products: ", products);
 
+
+        // await useRepository.update(users[0].id, {
+        //     email : "augusto@email.com"
+        // })
+
+        // await useRepository.softDelete(users[0].id)
+        // await storeRepository.softDelete(stores[0].id)
+        // await productRepository.softDelete(products[0].id)
+
         process.exit(0);
 
     } catch (error) {
