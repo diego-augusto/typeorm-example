@@ -1,11 +1,12 @@
-import { PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, BeforeInsert, BeforeUpdate, BeforeRemove } from "typeorm";
+import { PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, BeforeInsert, BeforeUpdate, BeforeRemove, Generated } from "typeorm";
 
 export abstract class BaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({ type : "uuid"})
+    @Generated("uuid")
     publicId: string;
 
     @CreateDateColumn()

@@ -8,7 +8,7 @@ export default class Database {
     static async getConnection() {
 
         if (this.connection === null) {
-            this.connection = await createConnection()
+            this.connection = await createConnection("development")
         }
 
         return this.connection

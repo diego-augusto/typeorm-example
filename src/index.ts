@@ -1,11 +1,11 @@
 import "reflect-metadata";
-import { User } from "./entity/User";
+import { User } from "./entities/User";
 import Database from "./application/Database";
-import { Store } from "./entity/Store";
-import { Product } from "./entity/Product";
-import { UserRepository } from "./repository/UserRepository";
-import { ProductRepository } from "./repository/ProductRepository";
-import { StoreRepository } from "./repository/StoreRepository";
+import { Store } from "./entities/Store";
+import { Product } from "./entities/Product";
+import { UserRepository } from "./repositories/UserRepository";
+import { ProductRepository } from "./repositories/ProductRepository";
+import { StoreRepository } from "./repositories/StoreRepository";
 
 (async function () {
 
