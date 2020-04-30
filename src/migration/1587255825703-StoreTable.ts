@@ -1,24 +1,56 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class StoreTable1587255825703 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<any> {
-        
-        const query = `
-            CREATE TABLE store (
-                id          SERIAL PRIMARY KEY,
-                "publicId"  UUID NOT NULL DEFAULT uuid_generate_v4(),
-                "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-                "updatedAt" TIMESTAMPTZ,
-                "deletedAt" TIMESTAMPTZ,
-                name        VARCHAR(255) UNIQUE NOT NULL,
-                "userId"    INTEGER REFERENCES "user"(id) NOT NULL
-            );
-        `
-        await queryRunner.query(query)
+
+        await queryRunner.createTable(new Table({
+            name: 'store',
+            columns: [
+                {
+                    name: "id",
+                    type: "int",
+                    isPrimary: true,
+                    isGenerated: true,
+                    isNullable: false
+                },
+                {
+                    name: "publicId",
+                    type: "uuid",
+                    generationStrategy: "uuid",
+                    isNullable: false,
+                },
+                {
+                    name: "createdAt",
+                    type: "time with time zone",
+                    isNullable: false,
+                },
+                {
+                    name: "updatedAt",
+                    type: "time with time zone"
+                },
+                {
+                    name: "deletedAt",
+                    type: "time with time zone",
+                },
+                {
+                    name: "name",
+                    type: "varchar",
+                }
+            ],
+            foreignKeys: [
+                {
+                    name: "FK_user",
+                    columnNames: ["userId"],
+                    referencedTableName: "user",
+                    referencedColumnNames: ["id"]
+                }
+            ]
+        }))
+
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
-        await queryRunner.query(`DROP TABLE store;`)
+        await queryRunner.dropTable("store")
     }
 }
