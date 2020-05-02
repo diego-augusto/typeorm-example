@@ -29,7 +29,7 @@ module.exports = [
     {
         "name" : "test",
         "type": "sqlite",
-        "database": "test.sqite",
+        "database": ":memory:",
         "synchronize": true,
         "logging": false,
         "entities": [
